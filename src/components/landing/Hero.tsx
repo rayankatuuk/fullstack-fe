@@ -81,13 +81,13 @@ export default function Hero({
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-136 w-136 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b8860b]/10 blur-3xl" />
 
         {/* Portrait Stage - full height, bottom-aligned */}
-        <div className="pointer-events-none absolute inset-0 flex items-end justify-center">
-          <div className="relative h-full w-full max-w-3xl">
+        <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-30">
+          <div className="relative h-full w-full max-w-4xl">
             <Image
               src="/images/rayan.png"
               alt="Profile Picture"
               fill
-              className="object-contain object-bottom drop-shadow-2xl lg:scale-100 xl:scale-110"
+              className="object-contain object-bottom drop-shadow-2xl lg:scale-100 xl:scale-140"
               sizes="42vw"
               priority
             />
@@ -95,7 +95,7 @@ export default function Hero({
         </div>
         
         {/* Stats Card - Positioned absolutely within desktop container */}
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-56 rounded-xl border border-gray-800 bg-[#111111]/85 p-4 shadow-2xl backdrop-blur-md xl:right-12">
+        <div className="absolute right-6 top-100 -translate-y-1/2 z-20 w-56 rounded-xl border border-yellow-600 bg-[#111111]/85 p-4 shadow-2xl backdrop-blur-md xl:right-10">
           {site.hero.stats?.map((stat, idx) => (
             <div key={idx} className={idx === 0 ? "flex items-center gap-4" : "mt-5 flex items-center gap-4"}>
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-700 bg-[#1c1a17] text-[#dc9b28]">

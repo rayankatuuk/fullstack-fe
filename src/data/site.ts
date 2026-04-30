@@ -21,7 +21,7 @@ export const site = {
   title: "Rayan Katuuk | Portfolio",
   description:
     "Senior Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
-  availabilityLabel: "SENIOR SOFTWARE ENGINEER",
+  availabilityLabel: "FULL STACK DEVELOPER",
   navLinks: [
     { label: "Home", href: "/", isActive: true },
     { label: "About", href: "/#about" },
