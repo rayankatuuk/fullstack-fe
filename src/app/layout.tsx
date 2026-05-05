@@ -14,6 +14,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: site.title,
   description: site.description,
+  icons: {
+    icon: "/images/logo-rk.png",
+    shortcut: "/images/logo-rk.png",
+    apple: "/images/logo-rk.png",
+  },
 };
 
 export default function RootLayout({
