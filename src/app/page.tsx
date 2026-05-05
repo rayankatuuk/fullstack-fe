@@ -18,7 +18,7 @@ export default function Home() {
       />
       
       {/* Dark Section - Hero */}
-      <section className="relative w-full bg-[#141313] text-gray-100 pb-0">
+      <section id="home" className="relative w-full bg-[#141313] text-gray-100 pb-0">
         <div className="mesh-bg absolute inset-0 opacity-40"></div>
         <div className="w-full relative z-10 flex flex-col h-full">
           {/* Content Container with padding */}

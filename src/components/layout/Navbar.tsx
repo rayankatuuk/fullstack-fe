@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { NavLink } from "@/data/site";
@@ -21,8 +21,73 @@ export default function Navbar({
   resumeVariant = "outline",
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState<string>(links[0]?.href ?? "/#home");
+
+  const sectionLinks = useMemo(
+    () =>
+      links
+        .map((link) => ({
+          ...link,
+          hash: link.href.includes("#") ? link.href.split("#")[1] : null,
+        }))
+        .filter((link) => link.hash),
+    [links]
+  );
+
+  const normalizeHref = (href: string) =>
+    href.startsWith("#") ? `/${href}` : href;
 
   const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    const updateFromHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        setActiveHref(`/#${hash.replace("#", "")}`);
+      } else {
+        setActiveHref("/#home");
+      }
+    };
+
+    updateFromHash();
+    window.addEventListener("hashchange", updateFromHash);
+
+    const observers: IntersectionObserver[] = [];
+
+    if (sectionLinks.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+          if (visible.length > 0) {
+            const id = visible[0].target.getAttribute("id");
+            if (id) {
+              setActiveHref(`/#${id}`);
+            }
+          }
+        },
+        { rootMargin: "-40% 0px -50% 0px", threshold: [0.1, 0.25, 0.5] }
+      );
+
+      sectionLinks.forEach((link) => {
+        if (link.hash) {
+          const el = document.getElementById(link.hash);
+          if (el) {
+            observer.observe(el);
+          }
+        }
+      });
+
+      observers.push(observer);
+    }
+
+    return () => {
+      window.removeEventListener("hashchange", updateFromHash);
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, [sectionLinks]);
 
   return (
     <nav className="fixed left-0 top-0 z-50 w-full border-b border-gray-800/50 bg-[#141313]/90 backdrop-blur-md">
@@ -53,7 +118,7 @@ export default function Navbar({
               key={link.label}
               href={link.href}
               className={
-                link.isActive
+                normalizeHref(link.href) === activeHref
                   ? "border-b-2 border-[#b8860b] pb-2 text-[#b8860b] text-sm font-medium"
                   : "border-b-2 border-transparent pb-2 text-gray-400 hover:text-gray-200 text-sm font-medium transition-colors"
               }
@@ -100,7 +165,7 @@ export default function Navbar({
               href={link.href}
               onClick={closeMenu}
               className={
-                link.isActive
+                normalizeHref(link.href) === activeHref
                   ? "text-[#b8860b] text-sm font-semibold"
                   : "text-gray-300 text-sm font-medium hover:text-gray-100 transition-colors"
               }

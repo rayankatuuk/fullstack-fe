@@ -23,7 +23,7 @@ export const site = {
     "Senior Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
   availabilityLabel: "FULL STACK DEVELOPER",
   navLinks: [
-    { label: "Home", href: "/", isActive: true },
+    { label: "Home", href: "/#home" },
     { label: "About", href: "/#about" },
     { label: "Experience", href: "/#experience" },
     { label: "Projects", href: "/#projects" },
