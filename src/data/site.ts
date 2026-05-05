@@ -17,10 +17,10 @@ export type SocialLink = {
 };
 
 export const site = {
-  name: "Rayan Katuuk | Porto",
-  title: "Rayan Katuuk | Portfolio",
+  name: "Rayan K | Portfolio",
+  title: "Rayan K | Portfolio",
   description:
-    "Senior Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
+    "I am Rayan Katuuk, a Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
   availabilityLabel: "FULL STACK DEVELOPER",
   navLinks: [
     { label: "Home", href: "/#home" },
@@ -35,7 +35,7 @@ export const site = {
     highlight: "Digital Solutions",
     headlineSuffix: "",
     description:
-      "Senior Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
+      "Hi, My name is Rayan Katuuk. Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
     primaryCta: { label: "View My Work", href: "/#projects", icon: "arrow_right_alt" },
     secondaryCta: { label: "Download CV", href: "#", icon: "download" },
     stats: [
