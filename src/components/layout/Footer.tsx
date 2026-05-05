@@ -11,7 +11,7 @@ type FooterProps = {
 export default function Footer({ copyright, socialLinks }: FooterProps) {
   return (
     <footer className="mt-auto w-full border-t border-gray-200 bg-white">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-6 px-6 py-8 text-sm md:flex-row md:px-12 lg:px-24">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-6 px-6 py-8 text-sm md:flex-row md:px-12 lg:px-24">
         
         <div className="text-gray-500 font-medium">{copyright}</div>
         
@@ -29,13 +29,6 @@ export default function Footer({ copyright, socialLinks }: FooterProps) {
             </div>
         )}
 
-        <Link
-          href="#"
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-gray-900 border border-gray-200 transition-all shadow-sm"
-          aria-label="Back to top"
-        >
-          <Icon name="arrow_upward" className="text-lg" />
-        </Link>
 
       </div>
     </footer>

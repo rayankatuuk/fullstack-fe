@@ -91,18 +91,18 @@ export default function Navbar({
 
   return (
     <nav className="fixed left-0 top-0 z-50 w-full border-b border-gray-800/50 bg-[#141313]/90 backdrop-blur-md">
-      <div className="flex h-20 items-center justify-between px-6 md:px-12 lg:px-24">
+      <div className="flex h-20 items-center justify-between gap-3 px-6 md:px-12 lg:px-24">
         <Link
           href="/"
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          className="flex min-w-0 items-center gap-2 hover:opacity-80 transition-opacity"
           onClick={closeMenu}
         >
-          <div className="relative h-15 w-15">
+          <div className="relative h-18 w-18 shrink-0">
           <Image
             src="/images/logo-rk.png"
             alt="Rayan Katuuk logo"
             fill
-            sizes="36px"
+            sizes="100px"
             className="object-contain"
             priority
           />
@@ -144,7 +144,7 @@ export default function Navbar({
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-yellow-600 bg-[#1a1a1a] text-gray-200 hover:bg-gray-800 md:hidden"
+          className="relative z-20 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-yellow-600 bg-[#1a1a1a] text-gray-200 hover:bg-gray-800 md:hidden"
         >
           <Icon name={isOpen ? "close" : "menu"} className="text-xl" />
         </button>

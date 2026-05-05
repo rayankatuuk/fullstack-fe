@@ -27,7 +27,6 @@ export const site = {
     { label: "About", href: "/#about" },
     { label: "Experience", href: "/#experience" },
     { label: "Projects", href: "/#projects" },
-    { label: "Skills", href: "/#skills" },
     { label: "Contact", href: "/#contact" },
   ] satisfies NavLink[],
   resumeLink: { label: "Download CV", href: "#", icon: "download" },
@@ -120,7 +119,7 @@ export const site = {
   },
   footer: {
     brand: "Rayan Katuuk",
-    copyright: "© 2026 Rayan Katuuk. All rights reserved.",
+    copyright: "Copyright © 2026 Rayan Katuuk. All rights reserved.",
     socialLinks: [] satisfies SocialLink[],
   },
   sections: {
