@@ -69,13 +69,13 @@ export default function Hero({
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-136 w-136 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#b8860b]/10 blur-3xl" />
 
         {/* Portrait Stage - full height, bottom-aligned */}
-        <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-30">
+        <div className="pointer-events-none absolute inset-0 flex items-end justify-center">
           <div className="relative h-full w-full max-w-3xl">
             <Image
               src="/images/rayan.png"
               alt="Profile Picture"
               fill
-              className="object-contain object-bottom drop-shadow-2xl lg:scale-100 xl:scale-140"
+              className="object-contain object-bottom drop-shadow-2xl lg:scale-100 xl:scale-100"
               sizes="42vw"
               priority
             />
@@ -101,7 +101,7 @@ export default function Hero({
       </div>
 
       {/* Mobile Portrait Image + Stats Overlay */}
-      <div className="relative w-full lg:hidden -mt-40 sm:mt-4 ">
+      <div className="relative w-full lg:hidden mt-6 sm:mt-4 ">
         <div className="relative mx-auto w-full max-w-7xl sm:max-w-md aspect-4/5">
           <Image
             src="/images/rayan.png"
@@ -111,7 +111,7 @@ export default function Hero({
             sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) calc(100vw - 6rem), 0px"
           />
 
-          <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 z-10 w-[70%] max-w-40 rounded-xl border border-yellow-600 bg-[#111111]/90 p-3 shadow-2xl backdrop-blur-md">
+          <div className="absolute bottom-6 right-2 sm:bottom-4 sm:right-4 z-10 w-[70%] max-w-40 rounded-xl border border-yellow-600 bg-[#111111]/90 p-3 shadow-2xl backdrop-blur-md">
             {site.hero.stats?.map((stat, idx) => (
               <div key={idx} className={idx === 0 ? "flex items-center gap-3" : "mt-3 flex items-center gap-3"}>
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-700 bg-[#1c1a17] text-[#dc9b28]">

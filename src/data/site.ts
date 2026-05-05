@@ -17,7 +17,7 @@ export type SocialLink = {
 };
 
 export const site = {
-  name: "Rayan Katuuk",
+  name: "Rayan Katuuk | Porto",
   title: "Rayan Katuuk | Portfolio",
   description:
     "Senior Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
@@ -55,11 +55,11 @@ export const site = {
   about: {
     description: "Passionate about clean code, system design, and solving complex problems. I help businesses turn ideas into reliable and scalable digital products.",
     info: [
-      { label: "Jakarta, Indonesia", icon: "location_on" },
-      { label: "ardi.putra@email.com", icon: "mail" },
-      { label: "+62 812 3456 7890", icon: "call" },
-      { label: "linkedin.com/in/ardiputra", icon: "link" },
-      { label: "github.com/ardiputra", icon: "code" },
+      { label: "Manado, Indonesia", icon: "location_on" },
+      { label: "rayankkatuuk@gmail.com", icon: "mail" },
+      { label: "+62 813 569 565 91", icon: "call" },
+      { label: "linkedin.com/in/rayankatuuk", icon: "link" },
+      { label: "github.com/rayankatuuk", icon: "code" },
     ]
   },
   techStack: [
@@ -120,7 +120,7 @@ export const site = {
   },
   footer: {
     brand: "Rayan Katuuk",
-    copyright: "© 2024 Rayan Katuuk. All rights reserved.",
+    copyright: "© 2026 Rayan Katuuk. All rights reserved.",
     socialLinks: [] satisfies SocialLink[],
   },
   sections: {

@@ -32,7 +32,7 @@ export default function Navbar({
           className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           onClick={closeMenu}
         >
-          <div className="relative h-9 w-9">
+          <div className="relative h-15 w-15">
           <Image
             src="/images/logo-rk.png"
             alt="Rayan Katuuk logo"
@@ -42,7 +42,7 @@ export default function Navbar({
             priority
           />
         </div>
-          <div className="text-xl font-bold text-gray-100 tracking-wide leading-none">
+          <div className="text-lg font-bold text-gray-100 tracking-wide leading-none">
             {brand}
           </div>
         </Link>
@@ -79,7 +79,7 @@ export default function Navbar({
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-700 bg-[#1a1a1a] text-gray-200 hover:bg-gray-800 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-yellow-600 bg-[#1a1a1a] text-gray-200 hover:bg-gray-800 md:hidden"
         >
           <Icon name={isOpen ? "close" : "menu"} className="text-xl" />
         </button>
