@@ -43,13 +43,6 @@ export const site = {
       { value: "25+", label: "Projects Completed", icon: "code" },
       { value: "12+", label: "Happy Clients", icon: "sentiment_satisfied" },
     ],
-    trustedBy: [
-      { name: "tokopedia", icon: "tokopedia" },
-      { name: "traveloka", icon: "traveloka" },
-      { name: "gojek", icon: "gojek" },
-      { name: "Bukalapak", icon: "bukalapak" },
-      { name: "blibli", icon: "blibli" },
-    ]
   },
   about: {
     description: "Passionate about clean code, system design, and solving complex problems. I help businesses turn ideas into reliable and scalable digital products.",
