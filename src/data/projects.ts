@@ -97,7 +97,7 @@ export const projects = [
       summary:
         "Production-grade React SPA separating public, member, and admin experiences with a unified design system and secure, cookie-based auth.",
       roleLabel: "Full Stack Developer",
-      timeline: "8 Months",
+      timeline: "3 Months",
       heroImage: {
         src: "/images/primerajawali-1.png",
         alt: "Abstract data visualization dashboard with glowing gold nodes and network connections on dark background",
@@ -257,7 +257,7 @@ export function RoleGuard({ allowedRoles, role, children }: RoleGuardProps) {
       summary:
         "React super-app frontend for payments, PPOB, and travel with protected routes and PWA installability.",
       roleLabel: "Full Stack Developer",
-      timeline: "6 Months",
+      timeline: "2 Months",
       heroImage: {
         src: "/images/mitratrip-1.png",
         alt: "Dark travel booking interface with gold highlights and confirmation states",
