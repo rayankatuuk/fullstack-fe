@@ -30,6 +30,10 @@ export type ProjectDetail = {
     src: string;
     alt: string;
   };
+  heroGallery?: Array<{
+    src: string;
+    alt: string;
+  }>;
   overview: string;
   impact: ProjectImpact;
   scale: ProjectImpact;
@@ -85,7 +89,7 @@ export const projects = [
     ],
     icon: "account_tree",
     cardImage: {
-      src: "/images/projects/prime-rajawali-card.svg",
+      src: "/images/primerajawali-2.png",
       alt: "Abstract dark UI dashboard with geometric network tree visualizations and soft gold glowing accents",
     },
     detail: {
@@ -95,9 +99,19 @@ export const projects = [
       roleLabel: "Full Stack Developer",
       timeline: "8 Months",
       heroImage: {
-        src: "/images/projects/prime-rajawali-hero.svg",
+        src: "/images/primerajawali-1.png",
         alt: "Abstract data visualization dashboard with glowing gold nodes and network connections on dark background",
       },
+      heroGallery: [
+        {
+          src: "/images/primerajawali-1.png",
+          alt: "Prime Rajawali login screen on desktop",
+        },
+        {
+          src: "/images/primerajawali-2.png",
+          alt: "Prime Rajawali network tree dashboard",
+        },
+      ],
       overview:
         "Prime Rajawali is a single-page frontend for an MLM platform that serves both members and administrators. The app delivers a public login flow, a member dashboard experience, and a robust admin control center within one codebase. The architecture emphasizes role-based routing, reusable UI modules, and API-driven data flows for network, bonus, ranking, and licensing features. Frontend focus areas include clean route boundaries for public/admin/member surfaces, fast dashboard interactions, consistent visual theming via CSS variables, and secure, cookie-based authentication that mirrors production behavior during local development. Axios is configured for CSRF handling, cookie-based auth, and image path normalization, while Vite proxy rewrites headers and cookie attributes so local development behaves like production.",
       impact: {
@@ -235,7 +249,7 @@ export function RoleGuard({ allowedRoles, role, children }: RoleGuardProps) {
     ],
     icon: "flight_takeoff",
     cardImage: {
-      src: "/images/projects/mitratrip-card.svg",
+      src: "/images/mitratrip-2.png",
       alt: "Sleek dark mode mobile application interface showing travel booking and transaction success screens with gold highlights",
     },
     detail: {
@@ -245,9 +259,23 @@ export function RoleGuard({ allowedRoles, role, children }: RoleGuardProps) {
       roleLabel: "Full Stack Developer",
       timeline: "6 Months",
       heroImage: {
-        src: "/images/projects/mitratrip-hero.svg",
+        src: "/images/mitratrip-1.png",
         alt: "Dark travel booking interface with gold highlights and confirmation states",
       },
+      heroGallery: [
+        {
+          src: "/images/mitratrip-1.png",
+          alt: "Mitratrip login screen on mobile",
+        },
+        {
+          src: "/images/mitratrip-2.png",
+          alt: "Mitratrip home dashboard with service grid",
+        },
+        {
+          src: "/images/mitratrip-3.png",
+          alt: "Mitratrip flight booking form",
+        },
+      ],
       overview:
         "Mitratrip is a consumer-facing super-app for digital payments and PPOB services. The frontend is a React SPA with a mobile-first UX, protected member routes, and a broad catalog of transactions (top up, bills, pulsa, vouchers, travel). The architecture prioritizes seamless in-app navigation, resilient session handling, and consistent UI patterns across high-frequency purchase flows. Core frontend focus areas include modular routing for many transactional surfaces, a robust API client for authenticated requests with CSRF support, PWA readiness for app-like behavior, and repeatable UI patterns for checkout, confirmations, and history.",
       impact: {
