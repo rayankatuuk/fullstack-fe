@@ -64,15 +64,25 @@ export const projects = [
     title: "Prime Rajawali",
     roleLabel: "MLM MANAGEMENT PLATFORM · FULL STACK DEVELOPER",
     roleDescription:
-      "Engineered a comprehensive multi-level marketing platform featuring an interactive visual network tree for real-time downline tracking, a complex automated bonus calculation engine, and a secure admin control center for holistic system management.",
+      "Built a production-grade React SPA that separates public, member, and admin experiences while sharing a unified design system, role-guarded routing, and API-driven dashboards.",
     summary:
-      "Engineered a comprehensive multi-level marketing platform featuring an interactive visual network tree for real-time downline tracking, a complex automated bonus calculation engine, and a secure admin control center for holistic system management.",
+      "Production-grade React SPA for an MLM platform with role-based routing, member/admin dashboards, a theme system, and Sanctum-compatible authentication.",
     keyFeatures: [
-      "Interactive Network Tree",
-      "Automated Bonus Engine",
+      "Role-Based Routing & Access Control",
+      "Member Dashboard Experience",
       "Admin Control Center",
+      "Theme Management System",
+      "Sanctum-Compatible Auth Flow",
+      "Local Dev Parity for Auth",
     ],
-    techStack: ["React 19", "Laravel 12"],
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "Laravel",
+      "MySQL",
+      "Axios",
+      "Lucide React",
+    ],
     icon: "account_tree",
     cardImage: {
       src: "/images/projects/prime-rajawali-card.svg",
@@ -81,7 +91,7 @@ export const projects = [
     detail: {
       statusLabel: "Shipped",
       summary:
-        "Engineered a comprehensive MLM management system for scalability and high-performance network tracking.",
+        "Production-grade React SPA separating public, member, and admin experiences with a unified design system and secure, cookie-based auth.",
       roleLabel: "Full Stack Developer",
       timeline: "8 Months",
       heroImage: {
@@ -89,7 +99,7 @@ export const projects = [
         alt: "Abstract data visualization dashboard with glowing gold nodes and network connections on dark background",
       },
       overview:
-        "Prime Rajawali required a robust architectural overhaul to support rapid user acquisition and complex financial automation. The primary challenge was calculating multi-tier bonuses accurately in real-time without degrading system performance. We achieved this by implementing a highly optimized backend calculation engine paired with a responsive frontend network visualizer.",
+        "Prime Rajawali is a single-page frontend for an MLM platform that serves both members and administrators. The app delivers a public login flow, a member dashboard experience, and a robust admin control center within one codebase. The architecture emphasizes role-based routing, reusable UI modules, and API-driven data flows for network, bonus, ranking, and licensing features. Frontend focus areas include clean route boundaries for public/admin/member surfaces, fast dashboard interactions, consistent visual theming via CSS variables, and secure, cookie-based authentication that mirrors production behavior during local development. Axios is configured for CSRF handling, cookie-based auth, and image path normalization, while Vite proxy rewrites headers and cookie attributes so local development behaves like production.",
       impact: {
         label: "Impact",
         value: "<1s",
@@ -102,9 +112,9 @@ export const projects = [
       },
       features: [
         {
-          title: "Interactive Network Tree",
+          title: "Role-Based Routing & Access Control",
           description:
-            "Built with React 19, allowing seamless zooming and panning across complex multi-level downline structures without rendering lag.",
+            "Public routes are separated from member and admin dashboards, with guarded routes enforcing role requirements and redirect behavior.",
           icon: "account_tree",
           image: {
             src: "/images/features/network-tree.svg",
@@ -113,16 +123,16 @@ export const projects = [
           layout: "tall",
         },
         {
-          title: "Automated Bonus Engine",
+          title: "Member Dashboard Experience",
           description:
-            "Backend logic for real-time rank advancement and commission distribution based on complex business rules.",
-          icon: "payments",
+            "Dedicated pages for profile, ranking, bonus insights, licensing, and a network tree flow provide a complete self-service experience.",
+          icon: "web",
           layout: "compact",
         },
         {
           title: "Admin Control Center",
           description:
-            "A comprehensive dashboard providing granular control over user roles, transaction monitoring, and system-wide settings, built with secure access controls.",
+            "A comprehensive admin panel for members, packages, bonuses, ranks, claims, approvals, ownership, payouts, bank settings, and Mitratrip integrations.",
           icon: "admin_panel_settings",
           image: {
             src: "/images/features/admin-panel.svg",
@@ -130,41 +140,71 @@ export const projects = [
           },
           layout: "wide",
         },
+        {
+          title: "Theme Management System",
+          description:
+            "Global theme context updates CSS variables with preset palettes and admin persistence for live preview and consistent branding.",
+          icon: "settings_suggest",
+          layout: "compact",
+        },
       ],
       technicalStack: [
         {
-          title: "Backend: Laravel 12 (PHP 8.2)",
+          title: "Framework: React 19",
           description:
-            "Chosen for its robust ecosystem and expressive syntax, handling complex database relationships efficiently.",
-          icon: "data_object",
+            "Single-page architecture focused on fast dashboard interactions and reusable UI modules.",
+          icon: "web",
         },
         {
-          title: "Security: Laravel Sanctum",
+          title: "Routing: React Router 7",
           description:
-            "Implemented stateless API token authentication for secure SPA communication.",
+            "Role-guarded routes with clear public, member, and admin boundaries.",
+          icon: "account_tree",
+        },
+        {
+          title: "Build Tooling: Vite 7",
+          description:
+            "Optimized local dev with proxy rewrites for auth parity and predictable QA.",
+          icon: "rocket_launch",
+        },
+        {
+          title: "Styling: Tailwind CSS v4 + CSS Variables",
+          description:
+            "Consistent theming with CSS variables and utility-first styling.",
+          icon: "settings_suggest",
+        },
+        {
+          title: "Networking & Auth: Axios + CSRF + Cookies",
+          description:
+            "Sanctum-compatible auth flow with CSRF handling and response normalization.",
           icon: "security",
         },
         {
-          title: "Frontend: React 19",
+          title: "UI Assets & Fonts: Lucide React + Manrope",
           description:
-            "Leveraged concurrent rendering features for smooth interactions in the heavily loaded network tree view.",
-          icon: "web",
+            "Consistent iconography and typography across all surfaces.",
+          icon: "star",
         },
       ],
       codePreview: {
-        fileName: "NetworkTreeController.php",
-        language: "php",
-        code: `public function getDownlineTree($userId)
-{
-    $node = Member::with('children')->findOrFail($userId);
+        fileName: "routes/role-guard.tsx",
+        language: "tsx",
+        code: `import { Navigate } from "react-router-dom";
 
-    // Cache network heavily due to complex read ops
-    return Cache::remember(
-        "network_tree_{$userId}",
-        now()->addMinutes(15),
-        fn() => new NetworkTreeResource($node)
-    );
-}`,
+type RoleGuardProps = {
+  allowedRoles: string[];
+  role: string | null;
+  children: React.ReactNode;
+};
+
+export function RoleGuard({ allowedRoles, role, children }: RoleGuardProps) {
+  if (!role || !allowedRoles.includes(role)) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <>{children}</>;
+}
+`,
       },
     },
   },
@@ -173,15 +213,26 @@ export const projects = [
     title: "Mitratrip",
     roleLabel: "PPOB & TRAVEL PWA · FULL STACK DEVELOPER",
     roleDescription:
-      "Developed a high-reliability Progressive Web App for bill payments and travel booking. Focused on seamless offline-capable experiences and rock-solid transaction processing through complex third-party API orchestrations.",
+      "Delivered a React-based super-app frontend that unifies payment, PPOB, and travel transactions inside a secure, mobile-first experience.",
     summary:
-      "Developed a high-reliability Progressive Web App for bill payments and travel booking. Focused on seamless offline-capable experiences and rock-solid transaction processing through complex third-party API orchestrations.",
+      "Consumer-facing super-app with protected member routes, modular transaction flows, and PWA readiness for app-like UX.",
     keyFeatures: [
-      "PWA Implementation",
-      "Third-Party Integration (Digiflazz)",
-      "Transaction Reliability",
+      "Protected Member Experiences",
+      "Payment & PPOB Catalog",
+      "Travel Transactions",
+      "Transaction History & Detail Views",
+      "Session-Aware Dashboard",
+      "PWA Ready",
     ],
-    techStack: ["React 19", "Laravel 12", "Vite PWA"],
+    techStack: [
+      "React",
+      "Vite Plugin PWA",
+      "Tailwind CSS",
+      "Laravel",
+      "MySQL",
+      "Axios",
+      "Lucide React",
+    ],
     icon: "flight_takeoff",
     cardImage: {
       src: "/images/projects/mitratrip-card.svg",
@@ -190,7 +241,7 @@ export const projects = [
     detail: {
       statusLabel: "Shipped",
       summary:
-        "Developed a resilient travel and bill-payment PWA with reliable transactions and offline capabilities.",
+        "React super-app frontend for payments, PPOB, and travel with protected routes and PWA installability.",
       roleLabel: "Full Stack Developer",
       timeline: "6 Months",
       heroImage: {
@@ -198,7 +249,7 @@ export const projects = [
         alt: "Dark travel booking interface with gold highlights and confirmation states",
       },
       overview:
-        "Mitratrip was built to support travel bookings and bill payments with heavy third-party integrations. The focus was ensuring reliable transaction orchestration, offline-first flows for repeat customers, and clear reconciliation tooling for operations teams.",
+        "Mitratrip is a consumer-facing super-app for digital payments and PPOB services. The frontend is a React SPA with a mobile-first UX, protected member routes, and a broad catalog of transactions (top up, bills, pulsa, vouchers, travel). The architecture prioritizes seamless in-app navigation, resilient session handling, and consistent UI patterns across high-frequency purchase flows. Core frontend focus areas include modular routing for many transactional surfaces, a robust API client for authenticated requests with CSRF support, PWA readiness for app-like behavior, and repeatable UI patterns for checkout, confirmations, and history.",
       impact: {
         label: "Impact",
         value: "99.9%",
@@ -206,15 +257,15 @@ export const projects = [
       },
       scale: {
         label: "Scale",
-        value: "50k+",
+        value: "10k+",
         description: "Monthly Transactions",
       },
       features: [
         {
-          title: "Offline-Ready Booking Flow",
+          title: "Protected Member Experiences",
           description:
-            "Ensured consistent booking creation with queue-based retries and resilient caching strategies across low-connectivity regions.",
-          icon: "offline_bolt",
+            "Route guards ensure only authenticated users reach app surfaces, with a clear public login entry point.",
+          icon: "security",
           image: {
             src: "/images/features/network-tree.svg",
             alt: "Abstract glowing nodes on a dark background representing offline workflows",
@@ -222,58 +273,90 @@ export const projects = [
           layout: "tall",
         },
         {
-          title: "Reliable Payment Orchestration",
+          title: "Payment & PPOB Catalog",
           description:
-            "Implemented robust error handling and reconciliation processes for multi-provider payments.",
+            "Dedicated flows for bills, pulsa, e-wallet top-ups, voucher games, and balance top-ups.",
           icon: "sync_alt",
           layout: "compact",
         },
         {
-          title: "Operations Control Dashboard",
+          title: "Travel Transactions",
           description:
-            "Delivered a unified admin cockpit for real-time monitoring, refunds, and exception resolution.",
-          icon: "monitoring",
+            "Flight and hotel search experiences integrated into the same app shell for cross-category journeys.",
+          icon: "flight_takeoff",
           image: {
             src: "/images/features/admin-panel.svg",
             alt: "Dark analytics dashboard showcasing key transaction metrics",
           },
           layout: "wide",
         },
+        {
+          title: "PWA Ready",
+          description:
+            "Vite PWA plugin with manifest, icons, and auto-update behavior for installable UX.",
+          icon: "offline_bolt",
+          layout: "compact",
+        },
       ],
       technicalStack: [
         {
-          title: "Backend: Laravel 12 (PHP 8.2)",
+          title: "Framework: React 19",
           description:
-            "Handled transactional orchestration, reconciliation logic, and provider integrations at scale.",
-          icon: "data_object",
+            "Mobile-first SPA with modular transaction flows and shared UI patterns.",
+          icon: "web",
         },
         {
-          title: "Security: Laravel Sanctum",
+          title: "Routing: React Router 7",
           description:
-            "Secured payment flows with token-based auth and multi-tenant access control.",
+            "Protected member routes with a clear public login boundary.",
+          icon: "account_tree",
+        },
+        {
+          title: "Build Tooling: Vite 7 + PWA",
+          description:
+            "Installable manifest with auto-update behavior for app-like UX.",
+          icon: "rocket_launch",
+        },
+        {
+          title: "Styling: Tailwind CSS v4",
+          description:
+            "Consistent UI patterns for checkout, confirmations, and history flows.",
+          icon: "settings_suggest",
+        },
+        {
+          title: "Networking: Axios + CSRF",
+          description:
+            "Authenticated requests with CSRF handling, bearer tokens, and retry logic.",
           icon: "security",
         },
         {
-          title: "Frontend: React 19 + Vite PWA",
+          title: "UI Assets & Fonts: Lucide React + Manrope",
           description:
-            "Optimized load times and offline features for reliable booking experiences.",
-          icon: "web",
+            "Unified iconography and typography across high-frequency purchase flows.",
+          icon: "star",
         },
       ],
       codePreview: {
-        fileName: "PaymentOrchestrator.ts",
-        language: "typescript",
-        code: `export async function processPayment(orderId: string) {
-  const transaction = await paymentGateway.createCharge(orderId);
+        fileName: "api/session-client.ts",
+        language: "ts",
+        code: `import axios from "axios";
 
-  await ledger.record({
-    orderId,
-    reference: transaction.reference,
-    status: transaction.status,
-  });
+export const sessionClient = axios.create({
+  baseURL: "/api",
+  withCredentials: true,
+  headers: {
+    Accept: "application/json",
+  },
+});
 
-  return transaction;
-}`,
+sessionClient.interceptors.response.use((response) => response, async (error) => {
+  if (error.response?.status === 401) {
+    window.location.href = "/login";
+  }
+
+  return Promise.reject(error);
+});
+`,
       },
     },
   },

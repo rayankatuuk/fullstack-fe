@@ -17,8 +17,8 @@ export type SocialLink = {
 };
 
 export const site = {
-  name: "Rayan K | Portfolio",
-  title: "Rayan K | Portfolio",
+  name: "WebApp Enthusiast",
+  title: "Rayan Katuuk | Portfolio",
   description:
     "I am Rayan Katuuk, a Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
   availabilityLabel: "FULL STACK DEVELOPER",
@@ -35,7 +35,7 @@ export const site = {
     highlight: "Digital Solutions",
     headlineSuffix: "",
     description:
-      "Hi, My name is Rayan Katuuk. Programmer with 10+ years of experience in designing, developing, and delivering high-performance web applications and services.",
+      "I am Rayan Katuuk, a Fullstack Developer with 10+ years of experience building scalable web and mobile applications, focused on clean architecture, secure integrations, and impactful digital solutions.",
     primaryCta: { label: "View My Work", href: "/#projects", icon: "arrow_right_alt" },
     secondaryCta: { label: "Download CV", href: "#", icon: "download" },
     stats: [
@@ -63,7 +63,10 @@ export const site = {
     { name: "Express.js", icon: "express" },
     { name: "PostgreSQL", icon: "postgresql" },
     { name: "MongoDB", icon: "mongodb" },
-    { name: "Docker", icon: "docker" }
+    { name: "Docker", icon: "docker" },
+    { name: "Laravel", icon: "laravel" },
+    { name: "MySQL", icon: "mysql" },
+    { name: "Tailwind CSS", icon: "tailwind" },
   ],
   coreExpertise: [
     { title: "System Design", description: "Design scalable and maintainable systems", icon: "architecture" },
@@ -74,30 +77,76 @@ export const site = {
   ],
   experience: [
     {
-      period: "2021 - Present",
-      role: "Senior Software Engineer",
-      company: "Tokopedia",
-      description: "Leading a team of engineers to build and scale core platforms used by millions of users.",
-      techs: ["TypeScript", "Node.js", "Kubernetes", "PostgreSQL", "Redis"],
-      icon: "tokopedia"
+      period: "2026 - Present",
+      role: "Full Stack Developer",
+      company: "PT Prime Rajawali Indonesia",
+      description:
+        "Leading development of Prime Rajawali (MLM platform) with member and admin dashboards, role-based access, and secure transaction flows.",
+      techs: ["React", "TypeScript", "Laravel", "MySQL"],
+      icon: "verified"
     },
     {
-      period: "2018 - 2021",
-      role: "Software Engineer",
-      company: "Traveloka",
-      description: "Developed high-performance features and services for flight booking platform.",
-      techs: ["JavaScript", "React", "Node.js", "MySQL", "AWS"],
-      icon: "traveloka"
+      period: "Nov 2022 - Present",
+      role: "Freelancer | Web/Mobile Developer",
+      company: "Freelance",
+      description:
+        "Built billing & payment applications that streamlined transactions, reducing processing time by 40%. Developed government platforms serving 5,000+ active users and delivered React Native mobile apps that improved adoption by 25% within 3 months.",
+      techs: ["TypeScript", "React", "React Native", "Tailwind", "Supabase", "Firebase", "MySQL"],
+      icon: "code"
     },
     {
-      period: "2015 - 2018",
-      role: "Backend Developer",
-      company: "Gojek",
-      description: "Built and optimized backend services for payments and logistics.",
-      techs: ["PHP", "Laravel", "MySQL", "RabbitMQ", "Docker"],
-      icon: "gojek"
+      period: "Dec 2020 - Nov 2022",
+      role: "Full Stack Developer",
+      company: "PT Indonesia Unggul Maju",
+      description:
+        "Designed and implemented responsive websites with ReactJS, TailwindCSS, and Laravel, reducing UI bugs by 30% and delivering projects 2 weeks ahead of schedule.",
+      techs: ["Bootstrap", "Laravel", "MySQL"],
+      icon: "settings_suggest"
+    },
+    {
+      period: "Mar 2014 - Apr 2016",
+      role: "Web Developer",
+      company: "Balai Pelestarian Nilai Budaya Sulawesi Utara",
+      description:
+        "Developed cultural heritage websites for local government with 100% cross-browser compatibility and improved community engagement through accessible digital platforms.",
+      techs: ["Wordpress", "PHP", "MySQL"],
+      icon: "web"
     }
   ],
+  credentials: {
+    education: {
+      title: "Bachelor’s in Management (Economics)",
+      institution: "STIE Budi Utomo",
+      year: "2011",
+    },
+    certifications: [
+      {
+        title: "Fullstack Developer",
+        issuer: "Harisenin Bootcamp",
+        year: "2025",
+        href: "https://harisenin.com",
+      },
+      {
+        title: "Fullstack Developer",
+        issuer: "Kelasfullstack.id",
+        year: "2025",
+        href: "https://kelasfullstack.id",
+      },
+      {
+        title: "JavaScript Algorithms & Data Structures",
+        issuer: "freeCodeCamp",
+        year: "2024",
+        href: "https://www.freecodecamp.org",
+      },
+      {
+        title: "Responsive Web Design",
+        issuer: "freeCodeCamp",
+        year: "2024",
+        href: "https://www.freecodecamp.org",
+      },
+    ],
+    languages: ["English", "Indonesian"],
+  },
   cta: {
     headlinePrefix: "Let's build ",
     highlight: "something amazing",

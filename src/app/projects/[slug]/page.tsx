@@ -6,7 +6,6 @@ import ProjectHero from "@/components/detail/ProjectHero";
 import OverviewImpact from "@/components/detail/OverviewImpact";
 import FeatureGrid from "@/components/detail/FeatureGrid";
 import TechnicalStack from "@/components/detail/TechnicalStack";
-import CodePreview from "@/components/detail/CodePreview";
 import { getProjectBySlug, getProjectSlugs } from "@/data/projects";
 import { site } from "@/data/site";
 
@@ -50,7 +49,7 @@ export default async function ProjectPage({ params }: PageProps) {
         resumeLink={site.resumeLink}
         resumeVariant="primary"
       />
-      <main className="mx-auto w-full max-w-7xl flex-1 px-6 pb-20 pt-24 md:px-8">
+      <main className="mx-auto w-full max-w-7xl flex-1 space-y-20 px-6 pb-24 pt-24 md:px-8">
         <ProjectHero title={project.title} detail={project.detail} />
         <OverviewImpact
           title={site.sections.overview}
@@ -63,13 +62,10 @@ export default async function ProjectPage({ params }: PageProps) {
           features={project.detail.features}
         />
         <section className="mx-auto max-w-7xl px-0">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <TechnicalStack
-              title={site.sections.technicalStack}
-              stack={project.detail.technicalStack}
-            />
-            <CodePreview preview={project.detail.codePreview} />
-          </div>
+          <TechnicalStack
+            title={site.sections.technicalStack}
+            stack={project.detail.technicalStack}
+          />
         </section>
       </main>
       <Footer

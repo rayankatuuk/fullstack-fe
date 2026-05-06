@@ -1,6 +1,5 @@
 import type { SocialLink } from "@/data/site";
 import Icon from "@/components/ui/Icon";
-import Link from "next/link";
 
 type FooterProps = {
   brand?: string;
